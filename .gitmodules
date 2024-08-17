@@ -1,0 +1,10 @@
+[submodule "nvim"]
+	path = nvim
+	url = https://novaru/nvim.git
+
+[submodule "neofetch-themes"]
+	path = neofetch/neofetch-themes
+	url = https://github.com/Chick2D/neofetch-themes.git
+[submodule "neofetch/neofetch-themes"]
+	path = neofetch/neofetch-themes
+	url = https://github.com/Chick2D/neofetch-themes.git
