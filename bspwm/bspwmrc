@@ -1,21 +1,20 @@
 #! /bin/sh
 
-# killall -q picom
 killall -q sxhkd
 
 # Autostart
 pgrep -x sxhkd > /dev/null || sxhkd &
-picom &
+# picom &
 
-$HOME/.config/polybar/launch.sh --forest &
+$HOME/.config/polybar/launch.sh &
 nitrogen --restore
 
-bspc monitor -d I II III IV V VI VII
+bspc monitor -d I II III IV V #VI VII
 
 bspc config border_width        2
-bspc config window_gap          16
-bspc config normal_border_color "#00695b"
-bspc config focused_border_color "#27e6b6"
+bspc config window_gap          12
+bspc config normal_border_color "#9e9e9e"
+bspc config focused_border_color "#89b4fa"
 
 bspc config split_ratio          0.5
 bspc config borderless_monocle   true
