@@ -1,0 +1,7 @@
+font-family = SF Mono
+font-size = 12
+font-feature = -calt, -liga, -dlig
+theme = gruvbox-material
+window-decoration = false
+window-padding-x = 8
+window-padding-y = 8, 4

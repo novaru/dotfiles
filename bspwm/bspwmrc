@@ -1,0 +1,28 @@
+#! /bin/sh
+
+killall -q sxhkd
+
+# Autostart
+pgrep -x sxhkd > /dev/null || sxhkd &
+polybar main &
+picom &
+
+$HOME/.config/polybar/launch.sh &
+nitrogen --restore
+
+bspc monitor -d I II III IV V #VI VII
+
+bspc config border_width        0
+bspc config window_gap           16
+# bspc config normal_border_color  "#9e9e9e"
+# bspc config focused_border_color "#61afef"
+
+bspc config split_ratio          0.5
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a librewolf desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+bspc rule -a Zathura state=tiled
