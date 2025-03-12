@@ -16,11 +16,11 @@ super + e
 
 # open browser
 super + b
-    bspc desktop -f ^2 && brave
+    bspc desktop -f ^2 ; brave
 
 # VirtualMachine
 # super + v
-  # bspc desktop -f ^6 && vmrun start ~/vmware/Windows10/Windows10.vmx
+  # bspc desktop -f ^6 ; vmrun start ~/vmware/Windows10/Windows10.vmx
 
 # pomodoro timer
 super + p
@@ -28,7 +28,7 @@ super + p
 
 # powermenu
 super + shift + p
-    ~/.config/rofi/powermenu/powermenu.sh &
+    ~/.config/rofi/powermenu/powermenu.sh &background
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -80,7 +80,7 @@ super + g
 
 # rotating the screen
 ctrl + alt + {Up,Left,Right}
-    xrandr -o {normal,left,right} && polybar-msg cmd restart
+    xrandr -o {normal,left,right} ; polybar-msg cmd restart
 
 # set the window state
 super + {t,shift + t,s,f}
