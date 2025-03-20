@@ -132,19 +132,14 @@ $env.config = {
     }
 }
 
-# BUN
-$env.BUN_INSTALL = $"($env.HOME)/.bun"
-$env.PATH = ($env.PATH | prepend $"($env.BUN_INSTALL)/bin")
-
-# CARGO
-$env.PATH = ($env.PATH | prepend $"($env.HOME)/.cargo/bin")
-# GHCUP
-$env.PATH = ($env.PATH | prepend $"($env.HOME)/.ghcup/bin")
-
-# ZVM
-$env.ZVM_INSTALL = $"($env.HOME)/.zvm/self"
-$env.PATH = ($env.PATH | append $"($env.HOME)/.zvm/bin")
-$env.PATH = ($env.PATH | append $env.ZVM_INSTALL)
+# PATH initialization
+$env.PATH = ($env.PATH
+    | prepend $"($env.HOME)/.bun/bin"
+    | prepend $"($env.HOME)/.cargo/bin"
+    | prepend $"($env.HOME)/.ghcup/bin"
+    | append $"($env.HOME)/.zvm/bin"
+    | append $"($env.HOME)/.zvm/self"
+    | uniq)
 
 zoxide init nushell | save -f ~/.zoxide.nu
 source ~/.zoxide.nu
