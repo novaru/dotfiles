@@ -86,7 +86,7 @@ use_logical_path = true
 [git_branch]
 symbol = ""
 style = "color_aqua"
-format = 'on [$symbol $branch ]($style)'
+format = 'on [$symbol $branch]($style)'
 
 [git_status]
 style = "color_aqua"

@@ -1,6 +1,5 @@
-font-family = Iosevka NF Medium
-font-size = 12
-font-feature = -calt, -liga, -dlig
+font-family = Iosevka Custom Medium
+font-size = 13
 theme = gruvbox-material
 window-decoration = false
 window-padding-x = 8
