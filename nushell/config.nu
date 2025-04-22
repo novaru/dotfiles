@@ -58,8 +58,9 @@ alias gp = git push
 setxkbmap -option caps:swapescape
 
 # Functions
-def greet [] {
-    echo "Hello, (sys | get host.hostname)!"
+def greet [name?: string] {
+  let real_name = if $name != null { $name } else { $env.USER }
+  $"Hello, ($real_name)!"
 }
 
 # Open a file with default associated program
@@ -74,7 +75,7 @@ def open [filename: path] {
 }
 
 # Create directory and enter it
-def mkcd [dirname: string] {
+def --env mkcd [dirname: string] {
     mkdir $dirname
     cd $dirname
 }
