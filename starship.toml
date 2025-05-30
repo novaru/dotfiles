@@ -1,28 +1,33 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
-command_timeout = 1000
+command_timeout = 1500
+
+# format = """
+# $os\
+# $username\
+# $directory\
+# $git_branch\
+# $git_status\
+# $package\
+# $c\
+# $bun\
+# $rust\
+# $golang\
+# $nodejs\
+# $haskell\
+# $python\
+# $zig\
+# $nix_shell\
+# $docker_context\
+# $conda\
+# $line_break\
+# $time\
+# $character\
+# """
 
 format = """
-$os\
-$username\
 $directory\
-$git_branch\
-$git_status\
-$package\
-$c\
-$bun\
-$rust\
-$golang\
-$nodejs\
-$haskell\
-$python\
-$zig\
-$nix_shell\
-$docker_context\
-$conda\
-$line_break\
-$time\
 $character\
 """
 
@@ -167,9 +172,17 @@ disabled = false
 
 [character]
 disabled = false
-success_symbol = '[ ](color_green)'
-error_symbol = '[ ](color_red)'
-vimcmd_symbol = '[ ](color_green)'
-vimcmd_replace_one_symbol = '[ ](color_purple)'
-vimcmd_replace_symbol = '[ ](color_purple)'
-vimcmd_visual_symbol = '[ ](color_yellow)'
+success_symbol = '[](color_green)'
+error_symbol = '[](color_red)'
+vimcmd_symbol = '[ ](color_green)'
+vimcmd_replace_one_symbol = '[<](color_purple)'
+vimcmd_replace_symbol = '[<](color_purple)'
+vimcmd_visual_symbol = '[<](color_yellow)'
+# [character]
+# disabled = false
+# success_symbol = '[ ](color_green)'
+# error_symbol = '[ ](color_red)'
+# vimcmd_symbol = '[ ](color_green)'
+# vimcmd_replace_one_symbol = '[ ](color_purple)'
+# vimcmd_replace_symbol = '[ ](color_purple)'
+# vimcmd_visual_symbol = '[ ](color_yellow)'
