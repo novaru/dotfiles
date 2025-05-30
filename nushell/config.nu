@@ -51,7 +51,6 @@ alias exes = exercism submit
 
 alias g = git
 alias gs = git status
-alias gc = git commit
 alias gp = git push
 
 # Swap Keys
@@ -85,8 +84,30 @@ def git-branch [] {
     git branch --show-current | str trim
 }
 
+def gcm [msg: string] {
+    git commit -am $msg
+}
+
 def nix-cmd [...args] {
     nix --extra-experimental-features 'nix-command flakes' ...$args
+}
+
+# exercism test command for common lisp (roswell)
+def --env exetcl [] {
+    let dir = $env.PWD
+
+    if ($dir | str contains 'exercism/common-lisp') {
+        let dirname = ($dir | path basename)
+        let testfile = $"($dirname)-test.lisp"
+
+        cd $dir
+
+    let eval_expr = "(uiop:quit (if (" + $dirname + "-test:run-tests) 0 1))"
+        
+        run-external "ros" "run" "--load" $"./($testfile)" "--eval" $eval_expr
+    } else {
+        print "Not in an exercism common-lisp directory"
+    }
 }
 
 # Commands completions
