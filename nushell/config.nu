@@ -154,6 +154,12 @@ $env.config = {
     }
 }
 
+$env.NVM_DIR = ($env.HOME | path join ".nvm")
+# This function lets you run nvm via bash
+def nvm [...args] {
+  bash -c $"source ($env.NVM_DIR | path join 'nvm.sh'); nvm ($args | str join ' ')"
+}
+
 # PATH initialization
 $env.PATH = ($env.PATH
     | prepend $"($env.HOME)/.bun/bin"
@@ -161,6 +167,7 @@ $env.PATH = ($env.PATH
     | prepend $"($env.HOME)/.ghcup/bin"
     | append $"($env.HOME)/.zvm/bin"
     | append $"($env.HOME)/.zvm/self"
+    | prepend $"($env.HOME)/go/bin"
     | uniq)
 
 zoxide init nushell | save -f ~/.zoxide.nu
@@ -170,3 +177,6 @@ source ~/.zoxide.nu
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
 source ~/.cache/starship/init.nu
+
+# Nvim environment variables
+# source-env ~/.config/nvim/env.nu
